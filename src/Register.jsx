@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export const Register = (props) => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+const Register = (props) => {
   const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [identityNumber, setIdentityNumber] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create a data object with the name, email, and password
     const data = {
       name: name,
+      surname: surname,
       email: email,
-      password: pass
+      password: password,
+      identityNumber: identityNumber
     };
 
-    // Make a POST request to your API endpoint
-    axios.post("https://your-api-url.com/register", data)
+    axios.post("http://localhost:5179/api/Users/register", data)
       .then((response) => {
-        // Handle the response from the API
+        alert("User has been registered!");
         console.log(response.data);
       })
       .catch((error) => {
-        // Handle any errors
         console.error(error);
       });
   };
@@ -32,15 +33,25 @@ export const Register = (props) => {
     <div className="auth-form-container">
       <h2>Register</h2>
       <form className="register-form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Full name</label>
+        <label htmlFor="name">Name</label>
         <input
           value={name}
-          name="name"
           onChange={(e) => setName(e.target.value)}
+          type="text"
+          placeholder="Your name"
           id="name"
-          placeholder="full Name"
+          name="name"
         />
-        <label htmlFor="email">email</label>
+        <label htmlFor="surname">Surname</label>
+        <input
+          value={surname}
+          onChange={(e) => setSurname(e.target.value)}
+          type="text"
+          placeholder="Your surname"
+          id="surname"
+          name="surname"
+        />
+        <label htmlFor="email">Email</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -49,14 +60,23 @@ export const Register = (props) => {
           id="email"
           name="email"
         />
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password</label>
         <input
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="********"
           id="password"
           name="password"
+        />
+        <label htmlFor="identityNumber">Identity Number</label>
+        <input
+          value={identityNumber}
+          onChange={(e) => setIdentityNumber(e.target.value)}
+          type="text"
+          placeholder="Your identity number"
+          id="identityNumber"
+          name="identityNumber"
         />
         <button type="submit">Register</button>
       </form>
@@ -69,3 +89,5 @@ export const Register = (props) => {
     </div>
   );
 };
+
+export default Register;

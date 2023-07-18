@@ -1,29 +1,27 @@
 import React, { useState } from "react";
-import './App.css';
-import { Login } from "./Login";
-import { Register } from "./Register";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Home";
+import { Login } from "./Login";
+import Register from "./Register";
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentForm, setCurrentForm] = useState('login');
+  const [currentForm, setCurrentForm] = useState("login");
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
-  }
+  };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-  }
+  };
 
   return (
     <div className="App">
       <Router>
-        <Route exact path="/">
-          {isLoggedIn ? (
-            <Redirect to="/home" />
-          ) : (
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : (
             <div>
               {currentForm === "login" ? (
                 <Login onFormSwitch={toggleForm} onLogin={handleLogin} />
@@ -31,11 +29,9 @@ function App() {
                 <Register onFormSwitch={toggleForm} onLogin={handleLogin} />
               )}
             </div>
-          )}
-        </Route>
-        <Route path="/home">
-          {isLoggedIn ? <Home /> : <Redirect to="/" />}
-        </Route>
+          )} />
+          <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/" />} />
+        </Routes>
       </Router>
     </div>
   );

@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios for making HTTP requests
+import axios from "axios";
 
-export const Login = (props) => {
+export const Login = ({ onFormSwitch, onLogin }) => {
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Create a data object with the email and password
+
     const data = {
       email: email,
-      password: pass
+      password: password,
     };
 
-    // Make a POST request to your API endpoint
-    axios.post("https://your-api-url.com/login", data)
+    axios
+      .post("http://localhost:5179/api/Users/login", data)
       .then((response) => {
-        // Handle the response from the API
-        console.log(response.data);
+        onLogin();
       })
       .catch((error) => {
         // Handle any errors
@@ -30,7 +28,7 @@ export const Login = (props) => {
     <div className="auth-form-container">
       <h2>Login</h2>
       <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
+        <label htmlFor="email">Email</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -39,10 +37,10 @@ export const Login = (props) => {
           id="email"
           name="email"
         />
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password</label>
         <input
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="********"
           id="password"
@@ -50,10 +48,7 @@ export const Login = (props) => {
         />
         <button type="submit">Log In</button>
       </form>
-      <button
-        className="link-btn"
-        onClick={() => props.onFormSwitch("register")}
-      >
+      <button className="link-btn" onClick={() => onFormSwitch("register")}>
         Don't have an account? Register here.
       </button>
     </div>
