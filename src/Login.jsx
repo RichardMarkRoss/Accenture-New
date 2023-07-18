@@ -19,7 +19,7 @@ export const Login = ({ onFormSwitch, onLogin }) => {
         onLogin();
       })
       .catch((error) => {
-        // Handle any errors
+        alert("User not registered!");
         console.error(error);
       });
   };
