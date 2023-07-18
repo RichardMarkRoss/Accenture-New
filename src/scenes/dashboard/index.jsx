@@ -24,11 +24,14 @@ const Dashboard = () => {
       {/* GRID & CHARTS */}
       <Box
         width="100%"
+        overflow= 'auto'
       >
-      <Carousel>
+      <Carousel
+      showArrows={false}
+      >
         {/* ROW 1 */}
         <Box
-          width="300px"
+          width="250px"
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
