@@ -17,7 +17,7 @@ function Home() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<Dashboard/>} />
             </Routes>
           </main>
         </div>
