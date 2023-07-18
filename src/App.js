@@ -31,7 +31,7 @@ function App() {
             </div>
           )} />
           <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/" />} /> */}
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           </Routes>
       </Router>
     </div>

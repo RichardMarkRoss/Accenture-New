@@ -120,8 +120,8 @@ export const tokens = (mode) => ({
     })
 });
 
-// mui theme settings
 
+// mui theme settings
 export const themeSettings =(mode) => {
     const colors = tokens(mode);
 
