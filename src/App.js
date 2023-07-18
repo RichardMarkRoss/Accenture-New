@@ -20,9 +20,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
+        <Routes> 
           <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : (
-            <div>
+            <div className="Log">
               {currentForm === "login" ? (
                 <Login onFormSwitch={toggleForm} onLogin={handleLogin} />
               ) : (
@@ -31,7 +31,8 @@ function App() {
             </div>
           )} />
           <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/" />} />
-        </Routes>
+        
+          </Routes>
       </Router>
     </div>
   );
