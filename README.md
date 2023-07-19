@@ -1,13 +1,28 @@
-# Elegant Login & Register Forms built in React
-![Screen Shot 2022-07-25 at 10 55 45 PM](https://user-images.githubusercontent.com/50160672/180913657-95824335-8089-4be3-91ba-6a0cbaef3d71.png)
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Login & Register Forms built in React
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+Starting the project is very simple
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Prerequisites Before starting, make sure you have the following installed:
+
+ - .NET SDK 6.0
+ - Node.js
+ - MongoDB
+
+Backend steps:
+download/clone the repo https://github.com/RichardMarkRoss/LottoApi to visual studio 2022
+Open a terminal or command prompt and run the following command to create a new ASP.NET Web API Core project:
+dotnet add package MongoDB.Driver
+Run the web api
+P.s that mongo data have been configured
+
+Front-end Steps:
+
+### `npm start`
+### 'npm run'
+Final step:
+
+you can sign up with your own username and password and login to access the home page.
