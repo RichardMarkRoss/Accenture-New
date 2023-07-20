@@ -1,10 +1,10 @@
 import React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@mui/icons-material/Folder';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const BottomNav = () => {
 
@@ -19,27 +19,27 @@ const BottomNav = () => {
         position: "fixed",
         bottom: 0,
         left: 0,
-        zIndex: 1000, // Set z-index to make sure it overlays content properly
+        zIndex: 1000, 
       }} value={value} onChange={handleChange}>
       <BottomNavigationAction
-        label="Recents"
+        label="Play"
         value="recents"
-        icon={<RestoreIcon />}
+        icon={<LocalActivityIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
+        label="Stats"
         value="favorites"
-        icon={<FavoriteIcon />}
+        icon={<AutoGraphIcon />}
       />
       <BottomNavigationAction
-        label="Nearby"
+        label="Profile"
         value="nearby"
-        icon={<LocationOnIcon />}
+        icon={<AccountCircleIcon />}
       />
       <BottomNavigationAction 
-        label="Folder"
+        label="Cart"
         value="folder" 
-        icon={<FolderIcon />} />
+        icon={<ShoppingCartIcon />} />
     </BottomNavigation>
   )
 }
