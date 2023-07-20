@@ -4,6 +4,9 @@ import Topbar from "./Components/global/Topbar";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Dashboard from "./scenes/dashboard";
+import Cart from "./scenes/cart";
+import Lotto from "./scenes/lotto";
+import Profile from "./scenes/profile";
 import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { themeSettings } from "./theme";
@@ -36,6 +39,10 @@ function Home() {
             {!isMobile && <Navbar setIsSidebar={setIsSidebar} />}
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/stats" element={<Dashboard />} />
+              <Route path="/lotto" element={<Lotto />} />
+              <Route path="/profile" element={<Dashboard />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
             {isMobile && <BottomNav />}
           </main>

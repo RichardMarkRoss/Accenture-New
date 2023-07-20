@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -8,7 +9,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const BottomNav = () => {
 
-  const [value, setValue] = React.useState('recents');
+  const [value, setValue] = React.useState('stats');
+  const navigate = useNavigate();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -21,25 +23,38 @@ const BottomNav = () => {
         left: 0,
         zIndex: 1000, 
       }} value={value} onChange={handleChange}>
+
       <BottomNavigationAction
-        label="Play"
-        value="recents"
+        label="Lotto"
+        value="lotto"
         icon={<LocalActivityIcon />}
+        onClick={()=>navigate("/lotto")}
       />
+      
+
       <BottomNavigationAction
         label="Stats"
-        value="favorites"
+        value="stats"
         icon={<AutoGraphIcon />}
+        onClick={()=>navigate("/stats")}
       />
+      
+
       <BottomNavigationAction
         label="Profile"
-        value="nearby"
+        value="profile"
         icon={<AccountCircleIcon />}
+        onClick={()=>navigate("/profile")}
       />
-      <BottomNavigationAction 
-        label="Cart"
-        value="folder" 
-        icon={<ShoppingCartIcon />} />
+      
+   
+        <BottomNavigationAction
+          label="Cart"
+          value="cart"
+          icon={<ShoppingCartIcon />}
+          onClick={()=>navigate("/cart")}
+        />
+      
     </BottomNavigation>
   )
 }
