@@ -13,10 +13,12 @@ const Navbar = () => {
   const [theme] = useMode();
   const colors = tokens(theme.palette.mode);
   return (
-    <FlexBetween mb="0.25rem" p="0.5rem 0rem" color={colors.grey[300]}> 
+    <FlexBetween mb="0.25rem" p="0.5rem 1rem" color={colors.grey[300]}> 
     <FlexBetween gap="0.75rem">
       <AutoGraphIcon sx={{fontSize: "28px"}}/>
-      <Typography variant="h4" fontSize="16px">
+      <Typography variant="h4" fontSize="16px" sx={{
+        alignSelf: "center"
+      }}>
         Lotto
       </Typography>
     </FlexBetween>
