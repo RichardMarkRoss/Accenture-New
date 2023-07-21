@@ -16,12 +16,11 @@ function App() {
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
-
   return (
     <div className="App">
       <Router>
         <Routes> 
-     {/* <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : (
+      <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : (
             <div className="Log">
               {currentForm === "login" ? (
                 <Login onFormSwitch={toggleForm} onLogin={handleLogin} />
@@ -30,8 +29,7 @@ function App() {
               )}
             </div>
           )} />
-          <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/" />} /> */}
-          <Route path="/" element={<Home />} /> 
+          <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/" />} /> 
           </Routes>
       </Router>
     </div>
